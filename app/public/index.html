@@ -1,0 +1,178 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+  <head>
+    <title>Snapshot for Kibana</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/jquery.dataTables.min.css">
+
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/custom.css">
+  </head>
+  <body>
+    <nav class="navbar navbar-tm">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <span class="navbar-brand"><img src="images/logo.png"></span>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"></div>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <ul class="nav nav-tabs" role="tablist">
+            <li class="active">
+              <a href="#home" role="tab" data-id="home" data-toggle="tab">Generated Snapshots <span class="text-muted">^G</span></a>
+            </li>
+            <li class="">
+              <a href="#cron_list" role="tab" data-id="cron_list" data-toggle="tab">Manage <span class="text-muted">^M</span></a>
+            </li>
+            <li class="">
+              <a href="#logs" role="tab" data-id="logs" data-toggle="tab">Logs <span class="text-muted">^L</span></a>
+            </li>
+          </ul>
+          <div class="tab-content">
+            <div class="tab-pane active" id="home">
+              <div id="chart1_container">
+                <div style="padding:10px;">
+                </div>
+                <a href="#" id="root_link">Go Back to Root Folder</a>
+                <table id="chart1" class="hover order-column stripe" cellspacing="0" width="100%">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>File Type</th>
+                      <th>Created Date</th>
+                    </tr>
+                  </thead>
+                </table>
+              </div>
+            </div>
+            <div class="tab-pane" id="logs">
+              <h5>Server Log</h5>
+              <pre id="logs_server"><code></code></pre>
+              <div><input type="checkbox" id="ch_server_errors"> <label for="ch_server_errors">Show errors only</label></div>
+              <hr />
+              <h5>Generate Log</h5>
+              <pre id="logs_generate"><code></code></pre>
+              <div><input type="checkbox" id="ch_generate_errors"> <label for="ch_generate_errors">Show errors only</label></div>
+              <hr />
+              <h5>Crontab</h5>
+              <pre id="logs_crontab"><code></code></pre>
+            </div>
+            <div class="tab-pane" id="cron_list">
+              <div style="padding:10px;">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal_add_cron">
+                  Schedule New Snapshot
+                </button>
+              </div>
+              <div id="chart2_container">
+                <table id="chart2" class="hover order-column stripe" cellspacing="0" width="100%">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Schedule</th>
+                      <th>Dashboard</th>
+                      <th>File Type</th>
+                      <th>Created Date</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                </table>
+              </div>
+              <div class="modal fade" id="modal_add_cron" tabindex="-1" role="dialog">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <form id="f_add_cron">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Schedule New Snapshot</h4>
+                      </div>
+                      <div class="modal-body form-horizontal">
+
+                        <div class="form-group">
+                          <label for="f_name" class="col-sm-2 control-label">Name</label>
+                          <div class="col-sm-10">
+                            <input type="text" class="form-control" id="f_name" name="name" placeholder="Name">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="col-sm-2 control-label">Schedule</label>
+                          <div class="col-sm-10">
+                            <div id="cron_select"></div>
+                            <input type="hidden" name="cron" value="" />
+                            <input type="hidden" name="cron_string" value="" />
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="f_action" class="col-sm-2 control-label">Dashboard</label>
+                          <div class="col-sm-10">
+                            <select name="dashboard" id="f_dashboard" class="form-control">
+                            </select>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="f_action" class="col-sm-2 control-label">Type</label>
+                          <div class="col-sm-10">
+                            <select name="type" id="f_type" class="form-control">
+                              <option value="png" selected>png</option>
+                              <option value="pdf">pdf</option>
+                              <option value="jpg">jpg</option>
+                            </select>
+                          </div>
+                        </div>
+
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12" id="chart2_container">
+        </div>
+      </div>
+
+      <footer class="footer" style="text-align:center;">
+        <hr style="margin:5px 0;" />
+        Copyright &copy; <script>document.write(new Date().getFullYear())</script> Parvez. All rights reserved.
+      </footer>
+    </div>
+
+    <div id="overlay" style="display:none;">
+      <img id="loading" src="/images/loading.gif">
+      <h1 id="loading_status"></h1>
+    </div>
+    <script src="/scripts/jquery-1.11.3.min.js"></script>
+    <script src="/scripts/jquery-migrate-1.2.1.min.js"></script>
+    <script src="/scripts/jquery.dataTables.min.js"></script>
+    <script src="/scripts/dataTables.bootstrap.min.js"></script>
+    <script src="/scripts/dataTables.select.min.js"></script>
+    <script src="/scripts/datetime-moment.js"></script>
+    <script src="/scripts/jquery.scrollintoview.js"></script>
+    <script src="/scripts/jquery-cron.js"></script>
+    <script src="/scripts/jgestures.min.js"></script>
+    <script src="/scripts/moment.min.js"></script>
+    <script src="/scripts/bootstrap.min.js"></script>
+    <script src="/scripts/custom.js"></script>
+  </body>
+</html>
