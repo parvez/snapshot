@@ -20,3 +20,13 @@ You can find configuration file \app\config\server.json
 > basic_auth_users - Basic authentication list of users
 
 -=-=-=-=-=-
+
+
+-=-=-=-=-=-
+License
+-=-=-=-=-=-
+
+Developed by Parvez Copyright (c) 2016 parvezh@gmail.com Licensed 
+under the MIT License http://opensource.org/licenses/MIT
+
+-=-=-=-=-=-

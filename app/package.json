@@ -1,6 +1,7 @@
 {
   "name": "snapshot_for_kibana",
   "private": true,
+  "license": "MIT",
   "version": "0.0.2",
   "description": "Snapshot for Kibana",
   "author": "Parvez <parvezht@gmail.com>",
