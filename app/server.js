@@ -115,17 +115,35 @@ require('crontab').load(function(err, crontab) {
       url: config.dashboards_list_url,
       json: true
     }, function (error, response, body) {
+
       modLog._log_api_response("/api/dashboards", null, error, response, body)
-      if (!error && response.statusCode == 200 && body && body.hits && body.hits.hits) {
-        res.json(
-          body.hits.hits.map(function(entry) {
-            return entry._id
-          })
-        )
+      if (config.type.kibana) {
+        if (!error && response.statusCode == 200 && body && body.hits && body.hits.hits) {
+          res.json(
+            body.hits.hits.map(function(entry) {
+              return entry._id
+            })
+          )
+        } else {
+          modLog._log("debug", "/api/dashboards", "NO_KIBANA_DASHBOARDS")
+          res.json([])
+        }
+      } else if (config.type.grafana) {
+        if (!error && response.statusCode == 200 && body) {
+          res.json(
+            body.map(function(entry) {
+              return entry.uri
+            })
+          )
+        } else {
+          modLog._log("debug", "/api/dashboards", "NO_GRAFANA_DASHBOARDS")
+          res.json([])
+        }
       } else {
         modLog._log("debug", "/api/dashboards", "NO_DASHBOARDS")
         res.json([])
       }
+
     })
   })
 

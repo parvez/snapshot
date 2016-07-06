@@ -1,9 +1,9 @@
 {
-  "name": "snapshot_for_kibana",
+  "name": "snapshot",
   "private": true,
   "license": "MIT",
   "version": "0.0.2",
-  "description": "Snapshot for Kibana",
+  "description": "Snapshot",
   "author": "Parvez <parvezht@gmail.com>",
   "dependencies": {
     "basic-auth-connect": "1.0.0",

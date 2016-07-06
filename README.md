@@ -1,16 +1,21 @@
-# Snapshot for Kibana
-Scheduled Report Generation for ElasticSearch Kibana!
+# Snapshot for Kibana / Grafana
+Scheduled Report Generation for ElasticSearch Kibana / Grafana!
 
 ### Start Docker Instance
-> docker build -t parvez/snapshot_for_kibana .  
-> docker run -p 49160:8080 -d parvez/snapshot_for_kibana
+> docker build -t parvez/snapshot .  
+> docker run -p 49160:8080 -d parvez/snapshot
 
 
 ### Configuration
 You can find configuration file \app\config\server.json
 - os_type - For selection of phantomjs binary
-- dashboard_url - Should be like this: http://{YOUR_KIBANA_HOST}:{YOUR_KIBANA_PORT}/app/kibana#/dashboard/
-- dashboards_list_url - Should be like this: http://{YOUR_KIBANA_HOST}:{YOUR_KIBANA_PORT}1/elasticsearch/.kibana/dashboard/_search?size=100
+- type - Supports Kibana & Grafana
+- dashboard_url - Should be like this:
+  http://{YOUR_KIBANA_HOST}:{YOUR_KIBANA_PORT}/app/kibana#/dashboard/
+  http://{YOUR_GRAFANA_HOST}:{YOUR_GRAFANA_PORT}/dashboard/
+- dashboards_list_url - Should be like this:
+  http://{YOUR_KIBANA_HOST}:{YOUR_KIBANA_PORT}/elasticsearch/.kibana/dashboard/_search?size=100
+  http://{YOUR_GRAFANA_HOST}:{YOUR_GRAFANA_PORT}/api/search"
 - basic_auth_users - Basic authentication list of users
 
 ### License

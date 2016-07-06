@@ -5,6 +5,10 @@
   "phantomjs": {
     "wait_seconds": "30"
   },
+  "type": {
+    "kibana": true,
+    "grafana": false
+  },
   "dashboard_url": "http://localhost:8001/#/dashboard/",
   "dashboards_list_url": "http://localhost:8001/elasticsearch/.kibana/dashboard/_search?size=100",
   "basic_auth_users": [
