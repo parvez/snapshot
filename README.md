@@ -8,15 +8,18 @@ Scheduled Report Generation for ElasticSearch Kibana / Grafana!
 
 ### Configuration
 You can find configuration file \app\config\server.json
-- os_type - For selection of phantomjs binary
-- type - Supports Kibana & Grafana
-- dashboard_url - Should be like this:
-  http://{YOUR_KIBANA_HOST}:{YOUR_KIBANA_PORT}/app/kibana#/dashboard/
-  http://{YOUR_GRAFANA_HOST}:{YOUR_GRAFANA_PORT}/dashboard/
-- dashboards_list_url - Should be like this:
-  http://{YOUR_KIBANA_HOST}:{YOUR_KIBANA_PORT}/elasticsearch/.kibana/dashboard/_search?size=100
-  http://{YOUR_GRAFANA_HOST}:{YOUR_GRAFANA_PORT}/api/search"
-- basic_auth_users - Basic authentication list of users
+
+* os_type - For selection of phantomjs binary - linux / mac
+* type - Supports Kibana & Grafana  
+  kibana: true / false  
+  grafana: true / false  
+* dashboard_url - Should be like this:  
+  http://{YOUR_KIBANA_HOST}:{YOUR_KIBANA_PORT}/app/kibana#/dashboard/  
+  http://{YOUR_GRAFANA_HOST}:{YOUR_GRAFANA_PORT}/dashboard/  
+* dashboards_list_url - Should be like this:  
+  http://{YOUR_KIBANA_HOST}:{YOUR_KIBANA_PORT}/elasticsearch/.kibana/dashboard/_search?size=100  
+  http://{YOUR_GRAFANA_HOST}:{YOUR_GRAFANA_PORT}/api/search  
+* basic_auth_users - Basic authentication list of users
 
 ### License
 Developed by Parvez  
