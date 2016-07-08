@@ -150,6 +150,10 @@ if (sargs.length < 3 || sargs.length > 8) {
         document.head.insertBefore(style, document.head.firstChild)
       })
 
+      consolelog('INFO', status)
+      page.onResourceError = function(resourceError) {
+        consolelog('ERROR', 'resourceError: ' + JSON.stringify(resourceError))
+      };
       if (status !== 'success') {
           consolelog('ERROR', 'Unable to load the URL: ' + _u)
           phantom.exit()
