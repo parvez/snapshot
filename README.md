@@ -13,6 +13,8 @@ You can find configuration file \app\config\server.json
 * type - Supports Kibana & Grafana  
   kibana: true / false  
   grafana: true / false  
+* request_headers: false / JSON object  
+  "request_headers": { "Accept": "application/json", "Authorization": "Bearer <your api key>" }  
 * dashboard_url - Should be like this:  
   http://{YOUR_KIBANA_HOST}:{YOUR_KIBANA_PORT}/app/kibana#/dashboard/  
   http://{YOUR_GRAFANA_HOST}:{YOUR_GRAFANA_PORT}/dashboard/  
@@ -27,32 +29,32 @@ Copyright (c) 2016 parvezht@gmail.com
 Licensed under the MIT License http://opensource.org/licenses/MIT  
 
 ### Screenshots
-1. login
+#### login
 
 ![1. login](https://raw.githubusercontent.com/parvez/snapshot_for_kibana/master/screenshots/1_login.png)
 
+#### generated snapshots
 
-2. generated snapshots
 
 ![2. generated snapshots](https://raw.githubusercontent.com/parvez/snapshot_for_kibana/master/screenshots/2_generated_snapshots.png)
 
 
-3. scheduled list
+#### scheduled list
 
 ![3. scheduled list](https://raw.githubusercontent.com/parvez/snapshot_for_kibana/master/screenshots/3_scheduled_list.png)
 
 
-4. schedule
+#### schedule
 
 ![4. schedule](https://raw.githubusercontent.com/parvez/snapshot_for_kibana/master/screenshots/4_schedule.png)
 
 
-5. logs
+#### logs
 
 ![5. logs](https://raw.githubusercontent.com/parvez/snapshot_for_kibana/master/screenshots/5_logs.png)
 
 
-6. Demo
+#### Demo
 
 ![6. demo 1](https://raw.githubusercontent.com/parvez/snapshot_for_kibana/master/screenshots/6_demo_1.png)
 
