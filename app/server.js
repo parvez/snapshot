@@ -111,11 +111,14 @@ require('crontab').load(function(err, crontab) {
   })
   app.get('/api/dashboards', function(req, res) {
     modLog._log("debug", "/api/dashboards", "dashboards_list_url: " + config.dashboards_list_url)
-    request({
+    var options = {
       url: config.dashboards_list_url,
       json: true
-    }, function (error, response, body) {
-
+    };
+    if (config.request_headers) {
+      options.headers = config.request_headers;
+    }
+    request(options, function (error, response, body) {
       modLog._log_api_response("/api/dashboards", null, error, response, body)
       if (config.type.kibana) {
         if (!error && response.statusCode == 200 && body && body.hits && body.hits.hits) {

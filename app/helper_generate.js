@@ -134,7 +134,12 @@ if (sargs.length < 3 || sargs.length > 8) {
 
   var _u = config.dashboard_url + dashboard
   consolelog('INFO', 'URL: ' + _u)
-  
+
+  if (config.request_headers) {
+    consolelog('INFO', 'Request Headers: ' + JSON.stringify(config.request_headers))
+    page.customHeaders = config.request_headers
+  }
+
   page.open(_u, function (status) {
 
       page.evaluate(function() {
