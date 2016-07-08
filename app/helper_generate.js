@@ -160,7 +160,7 @@ if (sargs.length < 3 || sargs.length > 8) {
       } else {
         window.setTimeout(function () {
             var title = page.evaluate(function(s) {
-                return document.title
+                return document.title.replace(/[|&:,;$%@<>()+#?\/"`']/g, "");
             }, 'title')
             page.render(storeDirectory + (new Date()).yyyymmddhhmmss() + ' - ' + title + '.' + output)
             consolelog('INFO', 'Successfully rendered URL: ' + _u)
