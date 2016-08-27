@@ -132,7 +132,7 @@ if (sargs.length < 3 || sargs.length > 8) {
   consolelog('INFO', 'output: ' + output)
   consolelog('INFO', 'waitTime: ' + waitTime + 'ms')
 
-  var _u = config.dashboard_url + dashboard
+  var _u = config.dashboard_url + dashboard+"?embed=true"
   consolelog('INFO', 'URL: ' + _u)
 
   if (config.request_headers) {
@@ -144,7 +144,7 @@ if (sargs.length < 3 || sargs.length > 8) {
 
       page.evaluate(function() {
         var style = document.createElement('style'),
-            text = document.createTextNode('@media print { html, body { zoom: 0.70; } }')
+            text = document.createTextNode('@media print { html, body { zoom: 0.70; background-color: #444444; } }')
         style.setAttribute('type', 'text/css')
         style.appendChild(text)
         document.head.insertBefore(style, document.head.firstChild)
