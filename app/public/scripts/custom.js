@@ -249,6 +249,17 @@ $(function () {
 
     $("#ch_server_errors").on("click", function() { chart3_load() })
     $("#ch_generate_errors").on("click", function() { chart3_load() })
+    $('#logout').off('click').on( 'click', function (e) {
+      e.preventDefault()
+      $.ajax(
+        {
+          type: "GET",
+          url: "/api/logout"
+        }
+      ).done(function(data) {
+      }).fail(function(data) {
+      })
+    })
 
     $(window).keydown(function(event) {
       if(event.ctrlKey && event.keyCode == 71) { 
